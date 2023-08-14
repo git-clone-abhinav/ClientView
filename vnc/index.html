@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TightVNC Client</title>
+    <style>
+        #noVNCContainer {
+            width: 800px;
+            height: 600px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="noVNCContainer"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/websockify/0.9.0/websockify.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noVNC/1.9.0/noVNC.js"></script>
+    <script>
+        const container = document.getElementById('noVNCContainer');
+        const vnc = new noVNC.VNC(container);
+
+        // Set the remote VNC server URL
+        const url = 'ws://192.168.1.70:5900';
+
+        // Connect to the remote VNC server
+        vnc.connect(url);
+    </script>
+</body>
+</html>
